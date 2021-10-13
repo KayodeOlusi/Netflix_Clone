@@ -2,20 +2,22 @@ import './App.css';
 import Section from './Components/Section';
 import requests from './requests';
 import Firstview from './Components/Firstvew';
+import Navbar from './Components/Navbar'
 
-function App() {
+function App() {  
   return (
     <div className="App">
-      <div className="bg-black">
+      <div className="app">
+        <Navbar />
         <Firstview />
-        <Section title = "TRENDING NOW"  fetchUrl = { requests.fetchTrending } />
-        <Section title = "NETFLIX ORIGINALS"  fetchUrl = { requests.fetchNetflixOriginals } />
-        <Section title = "TOP RATED"  fetchUrl = { requests.fetchTopRated } />
-        <Section title = "COMEDY"  fetchUrl = { requests.fetchComedy } />
-        <Section title = "ACTION"  fetchUrl = { requests.fetchActionMovies } />
-        <Section title = "HORROR"  fetchUrl = { requests.fetchHorrorMovies } />
-        <Section title = "DOCUMENTARIES"  fetchUrl = { requests.fetchDocumentaries } />
-        <Section title = "ROMANCE"  fetchUrl = { requests.fetchRomanceMovies } />       
+        <Section title = "Trending Now"  fetchUrl = { requests.fetchTrending } />
+        <Section title = "Netflix Originals"  fetchUrl = { requests.fetchNetflixOriginals } />
+        <Section title = "Top-Rated"  fetchUrl = { requests.fetchTopRated } />
+        <Section title = "Comedy"  fetchUrl = { requests.fetchComedy } />
+        <Section title = "Action"  fetchUrl = { requests.fetchActionMovies } />
+        <Section title = "Horror"  fetchUrl = { requests.fetchHorrorMovies } />
+        <Section title = "Documentaries"  fetchUrl = { requests.fetchDocumentaries } />
+        <Section title = "Romance"  fetchUrl = { requests.fetchRomanceMovies } />       
       </div>
     </div>
   );

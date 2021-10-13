@@ -5,7 +5,7 @@ const Firstview = () => {
     const [random, setRandom] = useState([])
     const baseUrl = "https://api.themoviedb.org/3"
     const image = "https://image.tmdb.org/t/p/w500/"
-    const randomFonts = ["font-sans", "font-serif", "font-mono font-noto", "font-josefin", "font-festive font-akronim"]
+    const randomFonts = ["Open Sans", "PT Mono", "Noto Sans Display", "Josefin Sans", "Akronim","Montserrat"]
     const selectRandomFont = randomFonts[Math.floor(Math.random() * randomFonts.length - 1)]
     
     useEffect(() => {
@@ -22,44 +22,36 @@ const Firstview = () => {
         randomMovie()
     }, [])
 
-    console.log(random)
-
     return ( 
-        <div className = "" style = {{
+        <div style = {{
             backgroundImage : `linear-gradient(
                 rgba(0,0,0,0.55),
                 rgba(0,0,0,0.55)
               ), url(${ image }${ random?.backdrop_path })`,
-            height : "80vh",
             backgroundPosition : "center center",
             backgroundRepeat : "no-repeat",
             backgroundSize : "cover"
-        }}>
-            <div className = "inner-details text-white">
-
-                <div style = {{
-                    paddingTop : "150px"
-                }} className = "grid lg:grid-cols-2"
-                >
-                    <div>
-                        <div className = {`${selectRandomFont}`} style={{
-                            fontSize : "40px"
-                        }}>
-                            <h1 className = "font-bold movie-name">{ random?.title  || random?.name || random?.original_title }
+        }} className = "poster">
+            <div className = "inner-details text-left">
+                    <div className = "contents">
+                        <div>
+                            <h1 className = "title" style = {{
+                                fontFamily : `${selectRandomFont}`,
+                                fontWeight : "bolder"
+                            }}>
+                                    { random?.title  || random?.name || random?.original_title }
                             </h1>
                         </div>
 
-                            <div className = "my-5 font-josefin">
-                                <button className = "btn" >Play</button>
-                                <button className = "btn">More Info</button>
+                            <div className = "buttons">
+                                <button className = "btn play mx-3" >Play</button>
+                                <button className = "btn more-info">More Info</button>
                             </div>
 
-                            <div className = "mt-5 sm:text-sm p-8 sm:p-2 font-noto movie-desc">
-                                <h1>{ random?.overview }</h1>
+                            <div className = "overview">
+                                <p>{ random?.overview }</p>
                             </div>
-                    </div> 
-
-                </div>
+                    </div>   
             </div>
 
         </div>

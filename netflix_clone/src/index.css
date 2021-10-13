@@ -2,46 +2,229 @@
 @import url('https://fonts.googleapis.com/css2?family=Festive&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Akronim&family=Festive&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Akronim&family=Festive&family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
-.image-fetched {
-  @apply mx-2 mt-2 w-full h-56 p-4 transform hover:scale-105 transition ease-in-out duration-300;
+*{
+  margin: 0;
+  padding: 0;
 }
 
-.row-image {
-  @apply flex overflow-y-hidden overflow-x-scroll p-2 mx-4;
+html{
+  overflow-x: hidden!important;
 }
 
-.btn {
-  @apply rounded-md py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider bg-gray-500 mx-2 transform hover:scale-125 transition ease-in-out duration-300;
+.row_images{
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  padding: 20px;
 }
 
+.row_images::-webkit-scrollbar{
+  display: none;
+}
 
-@layer utilities {
-  @variants responsive {
-    /* Chrome, Safari and Opera */
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
+.row_image{
+  object-fit: contain;
+  width:  100%;
+  max-height: 220px;
+  margin-right: 10px;
+  padding: 10px;
+  transition: transform 450ms;
+  border-radius: 20px!important;
+}
 
-    .no-scrollbar {
-      -ms-overflow-style: none;  /* IE and Edge */
-      scrollbar-width: none;  /* Firefox */
-    }
+.contents{
+  max-width: 560px;
+}
+
+.poster{
+  height: 90vh;
+  object-fit: contain;
+}
+
+.inner-details{
+  padding-top: 220px!important;
+  color:  #dddddd;
+}
+
+.row_image:hover{
+  transform: scale(1.08);
+}
+
+.app {
+  background-color: #000000;
+}
+
+.title{
+    font-size: 40px!important;
+    padding-left: 20px;
+}
+
+.buttons{
+  padding: 5px;
+}
+
+.single_movie{
+  font-family: 'Noto Sans Display', sans-serif;
+  color: #eeeeee;
+}
+
+.play{
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  padding: 5px 30px;
+  font-weight: bolder;
+}
+
+.more-info{
+  border-radius: 10px;
+  background-color: #222222;
+  padding: 5px 30px;
+  color: antiquewhite;
+  font-weight: bolder;
+}
+
+.play, .more-info {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.play:hover{
+  color: white;
+  background-color: black;
+  transform: scale(1.05);
+  transition: all 0.3s;
+}
+
+.more-info:hover{
+  transform: scale(1.05);
+  color: black;
+  background-color: blanchedalmond;
+  transition: all 0.3s;
+}
+
+.overview{
+    padding: 20px;
+}
+
+.overview p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.section {
+  padding-top: 40px;
+}
+
+.nav{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  padding: 0;
+  justify-content: space-between;
+  height: 60px;
+  z-index: 1;
+  padding: 0px 5px!important;
+}
+
+.nav_black{
+  background-color: black;
+  transition: all ease-in-out 0.8s;
+}
+
+.logo{
+  width: 80px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.logo:hover{
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+
+.logo_links{
+  display: flex;
+  margin-bottom: 10px!important;
+}
+
+.links{
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 30px!important;
+  font-family: 'Noto Sans Display', sans-serif;
+  margin-top: 10px;
+}
+
+.links li {
+  padding: 10px!important;
+  color: #eeeeee;
+}
+
+.links li a {
+  text-decoration: none;
+  color: #eeeeee;
+}
+
+.links li a:hover{
+  color: slategrey;
+}
+
+.profile{
+  width: 30px;
+  object-fit: contain;
+  cursor: pointer;
+  margin-bottom: 10px!important;
+}
+
+@media only screen and (max-width:320px) and (max-width:480px)  {
+  .poster{
+    height: 100vh;
+  }
+
+  .inner-details{
+    padding-top: 200px!important;
+  }
+
+  .title{
+    font-size: 20px!important;
+    padding: 10px;
+  }
+  
+  .overview p {
+    font-size: 12px;
+  }
+
+  .links{
+    display: none;
   }
 }
 
-@media only screen and (max-width:320px) and (max-width:480px) {
-    .movie-name {
-        font-size: 25px;
-    }
+@media only screen and (max-width:768px) and (max-width:1024px){
+  .title{
+    font-size: 19px!important;
+    padding: 10px;
+  }
 
-    .movie-desc{
-      padding: 50px;
-      font-size: 13px;
-    }
+  .overview p {
+    font-size: 12px;
+  }
+
+  .inner-details{
+    padding-top: 250px!important;
+    color:  #dddddd;
+  }
+
+  .links{
+    display: none;
+  }
 }
