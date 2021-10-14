@@ -9,8 +9,7 @@ const Firstview = () => {
     const selectRandomFont = randomFonts[Math.floor(Math.random() * randomFonts.length - 1)]
     
     useEffect(() => {
-        async function randomMovie(){
-            const movieRequest = await fetch(`${baseUrl}${requests.fetchRandom}`)
+             fetch(`${baseUrl}${requests.fetchRandom}`)
             .then( response => {
                 return response.json()
             })
@@ -18,8 +17,6 @@ const Firstview = () => {
                 const fetched = data.results[Math.floor(Math.random() * data.results.length - 1)]
                 setRandom(fetched)
             })
-        }
-        randomMovie()
     }, [])
 
     return ( 

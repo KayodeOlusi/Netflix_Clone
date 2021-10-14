@@ -12,16 +12,14 @@ const Section = ({ title, fetchUrl }) => {
 
     useEffect(() => {
         Aos.init({duration:2000});
-        async function fetchedData(){
-            const request = await fetch(`${baseUrl}${fetchUrl}`)
+
+        fetch(`${baseUrl}${fetchUrl}`)
             .then( response => {
                 return response.json()
             }).then( data => {
                 setMovies(data.results)
-                console.log(data.results)
             })
-        }
-        fetchedData()
+            
     }, [fetchUrl])
 
     const handleClick = (movie) => {
@@ -29,11 +27,11 @@ const Section = ({ title, fetchUrl }) => {
             setTrailerUrl("")
         }else{
             movieTrailer( movie?.name || "" )
-            .then(url => {
+            .then( url => {
                 const urlParams = new URLSearchParams(new URL(url).search)
-                setTrailerUrl(urlParams.get("v"))
+                setTrailerUrl( urlParams.get('v') )
             }).catch(error => {
-                console.log(error)
+                console.log("error",error)
             })
         }
     }
@@ -42,8 +40,8 @@ const Section = ({ title, fetchUrl }) => {
         height : "390",
         width : "100%",
         playerVars : {
-            autoplay : 1
-        }
+            autoplay : 1,
+        },
     }
 
     return ( 
@@ -56,7 +54,7 @@ const Section = ({ title, fetchUrl }) => {
                             src = {`${image}${movie.backdrop_path}`} 
                             alt={movie.name} className = "row_image"
                             key = { movie.id }
-                            onClick = { () => handleClick(movie)}
+                            onClick = { () => handleClick(movie) }
                          />   
                     ))
                 }
