@@ -1,7 +1,7 @@
 import './App.css';
 import Section from './Components/Section';
 import requests from './requests';
-import Firstview from './Components/Firstvew';
+import Firstview from './Components/Firstview';
 import Navbar from './Components/Navbar'
 
 function App() {  
